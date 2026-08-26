@@ -7,8 +7,10 @@ const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' })
 const dmSerif = DM_Serif_Display({ subsets: ['latin'], weight: '400', variable: '--font-dm-serif' })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://carlycars.com'),
   title: 'Carly Cars | Quality Used Cars in Houston, TX',
   description: 'Shop quality pre-owned cars, SUVs, and trucks at Carly Cars in Houston. Transparent pricing, flexible financing, and a better way to buy.',
+  alternates: { canonical: '/' },
   generator: 'v0.app',
 }
 

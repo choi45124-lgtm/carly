@@ -14,9 +14,16 @@ export const navItems = [
 
 export function CarlyHeader() {
   const [open, setOpen] = useState(false)
+  const [inventoryOpen, setInventoryOpen] = useState(false)
+  const inventoryLinks = [
+    ['All inventory', '/cars-for-sale'],
+    ['Sedans', '/cars-for-sale?type=Sedan'],
+    ['SUVs', '/cars-for-sale?type=SUV'],
+    ['Trucks', '/cars-for-sale?type=Truck'],
+  ]
   return <>
     <div className="topbar"><div className="container flex items-center justify-between gap-4"><span className="hidden sm:inline">Houston&apos;s trusted independent dealer since 2018</span><a href="tel:7139365512"><Phone /> (713) 936-5512</a><span className="hidden md:inline">842 Little York Rd, Suite B · Houston, TX 77076</span></div></div>
-    <header className="site-header"><div className="container flex items-center justify-between gap-6"><a href="/" className="brand" aria-label="Carly Cars home"><span className="brand-mark"><CarFront /></span><span>CARLY<span>CARS</span></span></a><nav className="desktop-nav" aria-label="Primary navigation">{navItems.map(([label, href]) => <a key={href} href={href}>{label}{label === 'Inventory' && <ChevronDown />}</a>)}<a href="/#about">About <ChevronDown /></a></nav><div className="header-actions"><a className="phone-link" href="tel:7139365512"><Phone /><span className="hidden lg:inline">Call us</span></a><a className="button button-primary hidden sm:inline-flex" href="/cars-for-sale">Shop cars</a><button className="menu-button" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div></div>{open && <nav className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}<a href="/#about" onClick={() => setOpen(false)}>About</a></nav>}</header>
+    <header className="site-header"><div className="container flex items-center justify-between gap-6"><a href="/" className="brand" aria-label="Carly Cars home"><span className="brand-mark"><CarFront /></span><span>CARLY<span>CARS</span></span></a><nav className="desktop-nav" aria-label="Primary navigation">{navItems.map(([label, href]) => label === 'Inventory' ? <div className="nav-dropdown" key={href}><button className="nav-dropdown-trigger" aria-expanded={inventoryOpen} onClick={() => setInventoryOpen(!inventoryOpen)}>{label}<ChevronDown /></button>{inventoryOpen && <div className="nav-dropdown-menu" role="menu">{inventoryLinks.map(([item, itemHref]) => <a key={itemHref} href={itemHref} role="menuitem" onClick={() => setInventoryOpen(false)}>{item}<span>›</span></a>)}</div>}</div> : <a key={href} href={href}>{label}</a>)}<a href="/#about">About <ChevronDown /></a></nav><div className="header-actions"><a className="phone-link" href="tel:7139365512"><Phone /><span className="hidden lg:inline">Call us</span></a><a className="button button-primary hidden sm:inline-flex" href="/cars-for-sale">Shop cars</a><button className="menu-button" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div></div>{open && <nav className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}<a href="/#about" onClick={() => setOpen(false)}>About</a></nav>}</header>
   </>
 }
 
