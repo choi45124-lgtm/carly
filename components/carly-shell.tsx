@@ -39,16 +39,19 @@ export function LeadForm({ button = 'Submit request' }: { button?: string }) {
 }
 
 export const inventory = [
-  { year: 2022, make: 'Toyota', model: 'Camry SE', price: 22995, miles: '38,420', type: 'Sedan', image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=85' },
-  { year: 2021, make: 'Chevrolet', model: 'Tahoe LT', price: 38995, miles: '54,110', type: 'SUV', image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=85' },
-  { year: 2020, make: 'Honda', model: 'Accord Sport', price: 24995, miles: '47,805', type: 'Sedan', image: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=900&q=85' },
-  { year: 2023, make: 'Ford', model: 'F-150 XLT', price: 41995, miles: '26,640', type: 'Truck', image: 'https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=900&q=85' },
-  { year: 2022, make: 'Nissan', model: 'Rogue SV', price: 26500, miles: '31,220', type: 'SUV', image: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=900&q=85' },
-  { year: 2019, make: 'Jeep', model: 'Grand Cherokee', price: 23995, miles: '63,450', type: 'SUV', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=85' },
+  { year: 2019, make: 'Honda', model: 'Civic', price: 18750, miles: '66,532', type: 'Sedan', stock: 'C4921', vin: '2HGFC2F69KH512847', image: 'https://images.unsplash.com/photo-1605816988069-b11383b50717?auto=format&fit=crop&w=900&q=85' },
+  { year: 2011, make: 'Lincoln', model: 'MKS', price: 9250, miles: '51,967', type: 'Sedan', stock: 'L1108', vin: '1LNHL9FT4BG602318', image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=85' },
+  { year: 2016, make: 'Chevrolet', model: 'Silverado 1500', price: 25995, miles: '76,495', type: 'Truck', stock: 'S1634', vin: '3GCUKREC5GG182604', image: 'https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=900&q=85' },
+  { year: 2022, make: 'Toyota', model: 'Camry SE', price: 22995, miles: '38,420', type: 'Sedan', stock: 'T2207', vin: '4T1G11AK5NU034912', image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=85' },
+  { year: 2021, make: 'Chevrolet', model: 'Tahoe LT', price: 38995, miles: '54,110', type: 'SUV', stock: 'T2104', vin: '1GNSKBKC0MR214806', image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=85' },
+  { year: 2020, make: 'Honda', model: 'Accord Sport', price: 24995, miles: '47,805', type: 'Sedan', stock: 'A2019', vin: '1HGCV1F38LA029145', image: 'https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=900&q=85' },
+  { year: 2023, make: 'Ford', model: 'F-150 XLT', price: 41995, miles: '26,640', type: 'Truck', stock: 'F2302', vin: '1FTFW1ED7PFA48231', image: 'https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=900&q=85' },
+  { year: 2022, make: 'Nissan', model: 'Rogue SV', price: 26500, miles: '31,220', type: 'SUV', stock: 'N2216', vin: 'JN8AT3BA7NW106244', image: 'https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=900&q=85' },
+  { year: 2019, make: 'Jeep', model: 'Grand Cherokee', price: 23995, miles: '63,450', type: 'SUV', stock: 'J1909', vin: '1C4RJFBG7KC721905', image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=85' },
 ]
 
 export function VehicleCard({ car }: { car: typeof inventory[number] }) {
-  return <article className="car-card"><div className="car-image"><img src={car.image} alt={`${car.year} ${car.make} ${car.model}`} /><span className="car-badge">Available</span></div><div className="car-details"><div className="car-year">{car.year} · {car.type}</div><h3>{car.make} {car.model}</h3><div className="car-specs"><span>{car.miles} mi</span><span>Automatic</span></div><div className="car-bottom"><strong>${car.price.toLocaleString()}</strong><a className="text-link" href="/loan-application">Apply now</a></div></div></article>
+  return <article className="car-card"><div className="car-image"><img src={car.image} alt={`${car.year} ${car.make} ${car.model}`} /><span className="car-badge">Available</span></div><div className="car-details"><div className="car-year">{car.year} · {car.type} · Stock #{car.stock}</div><h3>{car.make} {car.model}</h3><div className="car-specs"><span>{car.miles} mi</span><span>Automatic</span></div><div className="car-bottom"><strong>${car.price.toLocaleString()}</strong><a className="text-link" href="/loan-application">Apply now</a></div></div></article>
 }
 
 export function QuickLinks() {
