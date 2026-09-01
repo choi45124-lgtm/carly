@@ -8,7 +8,7 @@ const dmSerif = DM_Serif_Display({ subsets: ['latin'], weight: '400', variable: 
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://carlycars.com'),
-  title: 'Auto | Quality Used Cars in Houston, TX',
+  title: 'Rodeo Autos | Quality Used Cars in Houston, TX',
   description: 'Shop quality pre-owned cars, SUVs, and trucks at Auto in Houston. Transparent pricing, flexible financing, and a better way to buy.',
   alternates: { canonical: '/' },
   generator: 'v0.app',
