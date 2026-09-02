@@ -12,7 +12,10 @@ export default function PaymentPage() {
             <span className="section-kicker">RODEO AUTO NORTH</span>
             <h1>Make a <em>Payment</em></h1>
             <p>Pay your Rodeo Auto account in just a few steps.<br />Log in, choose your amount, and you&apos;re set.</p>
-            <a className="button button-primary payment-cta" href="https://www.rodeoauto.com/payment" target="_blank" rel="noreferrer">Pay your account</a>
+            <div className="payment-actions" aria-label="Payment options">
+              <a className="payment-toggle payment-toggle-account" href="https://paynearme.com/~by7TuNlFfgJEpVcijVU7zA==" target="_blank" rel="noreferrer">Pay your account</a>
+              <a className="payment-toggle payment-toggle-call" href="tel:7137426320">Call us now</a>
+            </div>
           </div>
           <aside className="payment-help">
             <h2>Need <em>Help?</em></h2>
