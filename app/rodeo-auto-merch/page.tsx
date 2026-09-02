@@ -22,9 +22,6 @@ export default function RodeoAutoMerchPage() {
           <div className="western-merch-inner">
             <div className="western-merch-art" aria-hidden="true" />
             <div className="western-merch-copy">
-              <img className="western-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Iqj5ixoT7n9F8Iae1sM0cEHKm68sbx.png" alt="" />
-              <h2 id="western-title">Western<br />Inspired</h2>
-              <p>Modern western looks—<br />on or off the clock.</p>
               <a className="merch-button merch-button-dark" href={westernUrl} target="_blank" rel="noreferrer">Shop western</a>
             </div>
           </div>
