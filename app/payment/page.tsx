@@ -22,7 +22,7 @@ export default function PaymentPage() {
           <div className="autopay-icon" aria-hidden="true">↔</div>
           <h2>Set up AutoPay</h2>
           <p>Never miss a payment — we can<br />help set it up for you.</p>
-          <a className="autopay-button" href="tel:7137426320">Call us now</a>
+          <a className="autopay-button" href="tel:7137426320" aria-label="Call Rodeo Auto now">Call us now</a>
         </div>
       </section>
     </CarlyShell>
