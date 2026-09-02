@@ -10,7 +10,7 @@ export default function RodeoAutoMerchPage() {
         <section className="merch-hero" aria-labelledby="merch-title">
           <div className="merch-hero-inner">
             <div className="merch-hero-copy">
-              <img className="merch-hero-logo" src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Iqj5ixoT7n9F8Iae1sM0cEHKm68sbx.png" alt="Rodeo Auto" />
+              <span className="merch-hero-logo">Auto</span>
               <h1 id="merch-title">Rodeo Auto<br />Merch</h1>
               <p>Elevate your work look with the latest Rodeo Auto merch.</p>
               <a className="merch-button merch-button-light" href={merchUrl} target="_blank" rel="noreferrer">Shop now</a>
