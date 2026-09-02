@@ -11,25 +11,28 @@ export const navItems = [
   ['Value My Trade', '/value-my-trade'],
   ['Testimonials', '/testimonial'],
   ['About Us', '/about-us'],
+  ['Make A Payment', '/payment'],
 ]
 
 export function CarlyHeader() {
   const [open, setOpen] = useState(false)
   const [inventoryOpen, setInventoryOpen] = useState(false)
+  const [aboutOpen, setAboutOpen] = useState(false)
   const inventoryLinks = [
     ['All inventory', '/cars-for-sale'],
     ['Sedans', '/cars-for-sale?type=Sedan'],
     ['SUVs', '/cars-for-sale?type=SUV'],
     ['Trucks', '/cars-for-sale?type=Truck'],
   ]
+  const aboutLinks = [['About Us', '/about-us'], ['Rodeo Auto Merch', '/rodeo-auto-merch']]
   return <>
     <div className="topbar"><div className="container flex items-center justify-between gap-4"><span className="hidden sm:inline">Houston&apos;s trusted independent dealer since 2018</span><a href="tel:7137426320"><Phone /> (713) 742-6320</a><span className="hidden md:inline">8224 North Fwy · Houston, TX 77037</span></div></div>
-    <header className="site-header"><div className="container flex items-center justify-between gap-6"><a href="/" className="brand" aria-label="Auto home"><span className="brand-mark"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Iqj5ixoT7n9F8Iae1sM0cEHKm68sbx.png" alt="Rodeo Auto logo" /></span></a><nav className="desktop-nav" aria-label="Primary navigation">{navItems.map(([label, href]) => label === 'Inventory' ? <div className="nav-dropdown" key={href}><button className="nav-dropdown-trigger" aria-expanded={inventoryOpen} onClick={() => setInventoryOpen(!inventoryOpen)}>{label}<ChevronDown /></button>{inventoryOpen && <div className="nav-dropdown-menu" role="menu">{inventoryLinks.map(([item, itemHref]) => <a key={itemHref} href={itemHref} role="menuitem" onClick={() => setInventoryOpen(false)}>{item}<span>›</span></a>)}</div>}</div> : <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="phone-link" href="tel:7137426320"><Phone /><span className="hidden lg:inline">Call us</span></a><a className="button button-primary hidden sm:inline-flex" href="/cars-for-sale">Shop cars</a><button className="menu-button" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div></div>{open && <nav className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}</nav>}</header>
+    <header className="site-header"><div className="container flex items-center justify-between gap-6"><a href="/" className="brand" aria-label="Auto home"><span className="brand-mark"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Iqj5ixoT7n9F8Iae1sM0cEHKm68sbx.png" alt="Rodeo Auto logo" /></span></a><nav className="desktop-nav" aria-label="Primary navigation">{navItems.map(([label, href]) => label === 'Inventory' ? <div className="nav-dropdown" key={href}><button className="nav-dropdown-trigger" aria-expanded={inventoryOpen} onClick={() => setInventoryOpen(!inventoryOpen)}>{label}<ChevronDown /></button>{inventoryOpen && <div className="nav-dropdown-menu" role="menu">{inventoryLinks.map(([item, itemHref]) => <a key={itemHref} href={itemHref} role="menuitem" onClick={() => setInventoryOpen(false)}>{item}<span>›</span></a>)}</div>}</div> : label === 'About Us' ? <div className="nav-dropdown" key={href}><button className="nav-dropdown-trigger" aria-expanded={aboutOpen} onClick={() => setAboutOpen(!aboutOpen)}>{label}<ChevronDown /></button>{aboutOpen && <div className="nav-dropdown-menu" role="menu">{aboutLinks.map(([item, itemHref]) => <a key={itemHref} href={itemHref} role="menuitem" onClick={() => setAboutOpen(false)}>{item}<span>›</span></a>)}</div>}</div> : label === 'Make A Payment' ? <a key={href} href="/payment">{label}</a> : <a key={href} href={href}>{label}</a>)}</nav><div className="header-actions"><a className="phone-link" href="tel:7137426320"><Phone /><span className="hidden lg:inline">Call us</span></a><a className="button button-primary hidden sm:inline-flex" href="/cars-for-sale">Shop cars</a><button className="menu-button" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button></div></div>{open && <nav className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}</nav>}</header>
   </>
 }
 
 export function CarlyFooter() {
-  return <footer className="footer"><div className="container footer-top"><a href="/" className="brand brand-light"><span className="brand-mark"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Iqj5ixoT7n9F8Iae1sM0cEHKm68sbx.png" alt="Rodeo Auto logo" /></span></a><p>Quality cars. Honest deals.<br />A better way to buy.</p><div className="footer-links">{navItems.slice(1, 5).map(([label, href]) => <a key={href} href={href}>{label}</a>)}<a href="/#contact">Contact</a></div></div><div className="container footer-bottom"><span>© 2026 Rodeo Auto. All rights reserved.</span><span>Houston, Texas · 8224 North Fwy, Houston, TX 77037</span></div></footer>
+  return <footer className="footer"><div className="container footer-top"><a href="/" className="brand brand-light"><span className="brand-mark"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Iqj5ixoT7n9F8Iae1sM0cEHKm68sbx.png" alt="Rodeo Auto logo" /></span></a><p>Quality cars. Honest deals.<br />A better way to buy.</p><div className="footer-links">{navItems.slice(1, 5).map(([label, href]) => <a key={href} href={href}>{label}</a>)}<a href="/#contact">Contact</a><a href="/payment">Make A Payment</a></div></div><div className="container footer-bottom"><span>© 2026 Rodeo Auto. All rights reserved.</span><span>Houston, Texas · 8224 North Fwy, Houston, TX 77037</span></div></footer>
 }
 
 export function PageIntro({ kicker, title, children }: { kicker: string; title: React.ReactNode; children: React.ReactNode }) {
